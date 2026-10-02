@@ -50,14 +50,7 @@
             margin-bottom: 20px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-            color: #cbd5e1;
-        }
-
-        /* Стили для Кнопки ВК с плавной анимацией */
+        /* Кнопка ВК с плавной анимацией */
         .btn-vk {
             display: inline-block;
             background-color: #0077ff;
@@ -68,30 +61,46 @@
             font-size: 1.1rem;
             border-radius: 50px;
             box-shadow: 0 4px 15px rgba(0, 119, 255, 0.4);
-            transition: all 0.3s ease; /* Плавность анимации */
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
         }
 
-        /* Анимация кнопки при наведении */
         .btn-vk:hover {
             background-color: #005ce6;
-            transform: translateY(-4px) scale(1.05); /* Приподнимается и немного увеличивается */
+            transform: translateY(-4px) scale(1.05);
             box-shadow: 0 8px 25px rgba(0, 119, 255, 0.6);
         }
 
-        /* Основной контент (Две колонки) */
-        .main-content {
+        /* Сетка презентации (Плакат + Текст) */
+        .promo-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 40px;
-            margin-top: 50px;
+            align-items: center;
+            margin-top: 30px;
         }
 
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 { font-size: 2rem; }
-            .hero h2 { font-size: 1.3rem; }
+        .poster-container {
+            overflow: hidden;
+            border-radius: 15px;
+            border: 2px solid #30363d;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            transition: border-color 0.3s;
+        }
+
+        .poster-container:hover {
+            border-color: #2563eb;
+        }
+
+        .site-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease; /* Плавное увеличение фото */
+        }
+
+        .poster-container:hover .site-img, .gallery-item:hover .site-img {
+            transform: scale(1.03); /* Эффект зума при наведении */
         }
 
         /* Карточки с информацией */
@@ -104,22 +113,28 @@
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* Анимация карточек при наведении */
         .card:hover {
-            transform: translateY(-8px); /* Плавное всплытие вверх */
-            border-color: #2563eb; /* Подсветка рамки синим */
-            box-shadow: 0 12px 20px rgba(37, 99, 235, 0.2); /* Красивое свечение */
+            transform: translateY(-5px);
+            border-color: #2563eb;
+            box-shadow: 0 12px 20px rgba(37, 99, 235, 0.15);
         }
 
         .card h3 {
             color: #38bdf8;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
             border-bottom: 2px solid #30363d;
             padding-bottom: 10px;
         }
 
-        /* Расписание */
+        /* Дополнительные блоки расписания и галереи */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
         .info-list {
             list-style: none;
         }
@@ -142,12 +157,32 @@
             color: #94a3b8;
         }
 
-        /* Подвал сайта (Контакты) */
+        /* Галерея */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            height: 150px;
+        }
+
+        .gallery-item .site-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Подвал */
         footer {
             margin-top: 60px;
             background-color: #161b22;
             border-top: 1px solid #30363d;
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
         }
 
@@ -158,7 +193,7 @@
 
         .phone-link {
             color: #38bdf8;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
             text-decoration: none;
             transition: color 0.2s;
@@ -170,13 +205,23 @@
         }
 
         .motto {
-            margin-top: 20px;
+            margin-top: 25px;
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #ef4444;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .promo-grid, .main-content {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 2rem; }
+            .hero h2 { font-size: 1.3rem; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
@@ -185,26 +230,31 @@
     <!-- Шапка -->
     <header class="hero">
         <div class="container">
-            <h1>Динамо Триумф</h1>
+            <h1>Динамо <span style="color: #38bdf8;">Триумф</span></h1>
             <h2>Набор детей в команду по регби!</h2>
-            <p>Стань частью нашей дружной и сильной команды. Развивай характер, выносливость и находи преданных друзей!</p>
-            <!-- Кнопка на ВК -->
-            <a href="https://vk.ru/rugby65" target="_blank" class="btn-vk">Наша группа ВКонтакте</a>
+            <a href="https://vk.ru" target="_blank" class="btn-vk">Наша группа ВКонтакте</a>
         </div>
     </header>
 
-    <!-- Основной блок -->
+    <!-- Презентация: Плакат + Описание -->
     <main class="container">
-        <div class="main-content">
+        <div class="promo-grid">
+            <!-- Главный плакат -->
+            <div class="poster-container">
+                <img src="poster.png" alt="Набор детей в регби" class="site-img">
+            </div>
             
-            <!-- Описание: Что такое регби -->
-            <section class="card">
+            <!-- Описание регби -->
+            <section class="card" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
                 <h3>Что такое регби?</h3>
-                <p><strong>Регби</strong> — это динамичный, зрелищный и интеллектуальный командный вид спорта. Вопреки мифам, это не просто силовая игра, а настоящие «шахматы на бегу», где побеждает дисциплина, тактика и взаимовыручка.</p>
+                <p><strong>Регби</strong> — это динамичный, зрелищный и высокоинтеллектуальный командный вид спорта. Вопреки мифам, это не просто силовое противостояние, а настоящие «шахматы на бегу», где ключевую роль играют дисциплина, тактический расчет и взаимовыручка.</p>
                 <br>
-                <p>Для детей регби — идеальный выбор. Оно комплексно развивает физическую форму: скорость, силу, координацию и ловкость. Но главное — регби воспитывает сильный характер, уважение к сопернику и судьям, а также учит работать в команде ради общей победы.</p>
+                <p>Для детей занятия регби дают комплексное физическое развитие: тренируют скорость, взрывную силу, координацию и общую выносливость. Главное преимущество — этот спорт закаляет характер, воспитывает уважение к соперникам и учит слаженно работать в команде ради общего триумфа.</p>
             </section>
+        </div>
 
+        <!-- Нижние блоки: Расписание + Галерея -->
+        <div class="main-content">
             <!-- Расписание тренировок -->
             <section class="card">
                 <h3>Расписание тренировок</h3>
@@ -224,6 +274,18 @@
                 </ul>
             </section>
 
+            <!-- Мини-галерея (Команда и награды) -->
+            <section class="card">
+                <h3>Галерея команды</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="team.png" alt="Наша команда" class="site-img">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="trophies.png" alt="Наши награды" class="site-img">
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -232,7 +294,7 @@
         <div class="container" style="padding: 0;">
             <p>Остались вопросы? Звоните для справок:</p>
             <a href="tel:+79146492420" class="phone-link">+7 (914) 649-24-20</a>
-            <p style="margin-top: 5px; font-size: 0.9rem; color: #64748b;">Дополнительный телефон: +7 (924) 188-51-79</p>
+            <p style="margin-top: 8px; font-size: 0.95rem; color: #64748b;">Дополнительный телефон: +7 (924) 188-51-79</p>
             <div class="motto">Регби – это сила! Дружба! Победы!</div>
         </div>
     </footer>
