@@ -26,28 +26,33 @@
             padding: 40px 20px;
         }
 
-        /* Шапка сайта (Hero section) */
+        /* Шапка сайта с фоновым изображением команды */
         .hero {
-            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            position: relative;
+            background-image: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%), url('./team.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             text-align: center;
-            padding: 80px 20px;
+            padding: 120px 20px;
             border-bottom: 4px solid #2563eb;
             border-radius: 0 0 20px 20px;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
         }
 
         .hero h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #38bdf8;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         /* Кнопка ВК с плавной анимацией */
@@ -56,19 +61,18 @@
             background-color: #0077ff;
             color: white;
             text-decoration: none;
-            padding: 15px 35px;
+            padding: 15px 40px;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             border-radius: 50px;
             box-shadow: 0 4px 15px rgba(0, 119, 255, 0.4);
             transition: all 0.3s ease;
-            margin-bottom: 20px;
         }
 
         .btn-vk:hover {
             background-color: #005ce6;
             transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 119, 255, 0.6);
+            box-shadow: 0 8px 25px rgba(0, 119, 255, 0.7);
         }
 
         /* Сетка презентации (Плакат + Текст) */
@@ -96,11 +100,11 @@
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s ease; /* Плавное увеличение фото */
+            transition: transform 0.5s ease;
         }
 
         .poster-container:hover .site-img, .gallery-item:hover .site-img {
-            transform: scale(1.03); /* Эффект зума при наведении */
+            transform: scale(1.03);
         }
 
         /* Карточки с информацией */
@@ -160,7 +164,7 @@
         /* Галерея */
         .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 15px;
         }
 
@@ -168,7 +172,7 @@
             overflow: hidden;
             border-radius: 10px;
             border: 1px solid #30363d;
-            height: 150px;
+            height: 250px;
         }
 
         .gallery-item .site-img {
@@ -219,15 +223,15 @@
             .promo-grid, .main-content {
                 grid-template-columns: 1fr;
             }
-            .hero h1 { font-size: 2rem; }
-            .hero h2 { font-size: 1.3rem; }
-            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero h2 { font-size: 1.4rem; }
+            .hero { padding: 80px 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Шапка -->
+    <!-- Шапка (Синий фон заменен на затемненное фото команды) -->
     <header class="hero">
         <div class="container">
             <h1>Динамо <span style="color: #38bdf8;">Триумф</span></h1>
@@ -241,7 +245,8 @@
         <div class="promo-grid">
             <!-- Главный плакат -->
             <div class="poster-container">
-                <img src="poster.png" alt="Набор детей в регби" class="site-img">
+                <!-- Точка перед слэшем указывает искать файл в текущей папке репозитория -->
+                <img src="./poster.png" alt="Набор детей в регби" class="site-img">
             </div>
             
             <!-- Описание регби -->
@@ -253,7 +258,7 @@
             </section>
         </div>
 
-        <!-- Нижние блоки: Расписание + Галерея -->
+        <!-- Нижние блоки: Расписание + Галерея кубков -->
         <div class="main-content">
             <!-- Расписание тренировок -->
             <section class="card">
@@ -274,15 +279,12 @@
                 </ul>
             </section>
 
-            <!-- Мини-галерея (Команда и награды) -->
+            <!-- Фото кубков -->
             <section class="card">
-                <h3>Галерея команды</h3>
+                <h3>Наши награды</h3>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="team.png" alt="Наша команда" class="site-img">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="trophies.png" alt="Наши награды" class="site-img">
+                        <img src="./trophies.png" alt="Наши кубки" class="site-img">
                     </div>
                 </div>
             </section>
