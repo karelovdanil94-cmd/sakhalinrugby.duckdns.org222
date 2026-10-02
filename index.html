@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Динамо Триумф — Секция регби для детей</title>
+    <style>
+        /* Общие стили */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #f0f6fc;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Шапка сайта (Hero section) */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 4px solid #2563eb;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            color: #cbd5e1;
+        }
+
+        /* Стили для Кнопки ВК с плавной анимацией */
+        .btn-vk {
+            display: inline-block;
+            background-color: #0077ff;
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 119, 255, 0.4);
+            transition: all 0.3s ease; /* Плавность анимации */
+        }
+
+        /* Анимация кнопки при наведении */
+        .btn-vk:hover {
+            background-color: #005ce6;
+            transform: translateY(-4px) scale(1.05); /* Приподнимается и немного увеличивается */
+            box-shadow: 0 8px 25px rgba(0, 119, 255, 0.6);
+        }
+
+        /* Основной контент (Две колонки) */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 2rem; }
+            .hero h2 { font-size: 1.3rem; }
+        }
+
+        /* Карточки с информацией */
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Анимация карточек при наведении */
+        .card:hover {
+            transform: translateY(-8px); /* Плавное всплытие вверх */
+            border-color: #2563eb; /* Подсветка рамки синим */
+            box-shadow: 0 12px 20px rgba(37, 99, 235, 0.2); /* Красивое свечение */
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #30363d;
+            padding-bottom: 10px;
+        }
+
+        /* Расписание */
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-list .day {
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .info-list .details {
+            color: #94a3b8;
+        }
+
+        /* Подвал сайта (Контакты) */
+        footer {
+            margin-top: 60px;
+            background-color: #161b22;
+            border-top: 1px solid #30363d;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            color: #94a3b8;
+        }
+
+        .phone-link {
+            color: #38bdf8;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .phone-link:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        .motto {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #ef4444;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header class="hero">
+        <div class="container">
+            <h1>Динамо Триумф</h1>
+            <h2>Набор детей в команду по регби!</h2>
+            <p>Стань частью нашей дружной и сильной команды. Развивай характер, выносливость и находи преданных друзей!</p>
+            <!-- Кнопка на ВК -->
+            <a href="https://vk.ru/rugby65" target="_blank" class="btn-vk">Наша группа ВКонтакте</a>
+        </div>
+    </header>
+
+    <!-- Основной блок -->
+    <main class="container">
+        <div class="main-content">
+            
+            <!-- Описание: Что такое регби -->
+            <section class="card">
+                <h3>Что такое регби?</h3>
+                <p><strong>Регби</strong> — это динамичный, зрелищный и интеллектуальный командный вид спорта. Вопреки мифам, это не просто силовая игра, а настоящие «шахматы на бегу», где побеждает дисциплина, тактика и взаимовыручка.</p>
+                <br>
+                <p>Для детей регби — идеальный выбор. Оно комплексно развивает физическую форму: скорость, силу, координацию и ловкость. Но главное — регби воспитывает сильный характер, уважение к сопернику и судьям, а также учит работать в команде ради общей победы.</p>
+            </section>
+
+            <!-- Расписание тренировок -->
+            <section class="card">
+                <h3>Расписание тренировок</h3>
+                <ul class="info-list">
+                    <li>
+                        <span class="day">📅 Вторник</span>
+                        <span class="details">ул. Емельянова 19А</span>
+                    </li>
+                    <li>
+                        <span class="day">📅 Суббота</span>
+                        <span class="details">Стадион «Спартак»</span>
+                    </li>
+                    <li>
+                        <span class="day">⏰ Начало тренировок</span>
+                        <span class="details">В 18:00</span>
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Подвал с контактами -->
+    <footer>
+        <div class="container" style="padding: 0;">
+            <p>Остались вопросы? Звоните для справок:</p>
+            <a href="tel:+79146492420" class="phone-link">+7 (914) 649-24-20</a>
+            <p style="margin-top: 5px; font-size: 0.9rem; color: #64748b;">Дополнительный телефон: +7 (924) 188-51-79</p>
+            <div class="motto">Регби – это сила! Дружба! Победы!</div>
+        </div>
+    </footer>
+
+</body>
+</html>
